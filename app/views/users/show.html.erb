@@ -1,2 +1,10 @@
 <span>User info:</span>
 <%= @user.username %>
+<br>
+
+<% @user.events.each do |event| %>
+    <%= event.title %>
+    <%= event.event_date %>
+    <%= event.description %>
+    <%= event.attendees %><br>
+<% end %>

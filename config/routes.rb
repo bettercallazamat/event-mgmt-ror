@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
 
-  root "users#index"
+  resources :events, only: %i[index show new create]
+
+  root "events#index"
 end
