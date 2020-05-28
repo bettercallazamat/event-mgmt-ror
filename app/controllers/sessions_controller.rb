@@ -14,12 +14,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  def login
-  end
-
   def destroy
     flash[:success] = "You logged out"
-    session.delete(:user_id)
+    session[:user_id] = nil
+    redirect_to root_path
   end
   
 end
