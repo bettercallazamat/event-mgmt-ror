@@ -15,5 +15,5 @@
 <% if going?(@event.id) %>
   <p>You are going to this event</p>
 <% else %>
-  <p><%= link_to 'Attend', attendence_path(event.id), method: :post %><p>
+  <p><%= link_to 'Attend', attendence_path(@event.id), method: :post %><p>
 <% end %>

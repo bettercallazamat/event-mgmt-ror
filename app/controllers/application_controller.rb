@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def going?(event_id)
-    return false if current_user.attended_events.where(id: event_id).empty?
+    return false if !current_user || current_user.attended_events.where(id: event_id).empty?
 
     true
   end
