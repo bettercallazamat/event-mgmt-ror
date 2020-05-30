@@ -1,6 +1,6 @@
 require_relative './rails_helper.rb'
 
-RSpec.describe 'User',:type => :feature do
+RSpec.describe 'User', type: :feature do
   it 'It should create a new user' do
     visit new_user_path
     fill_in 'user_username', with: 'johnsmith'
@@ -26,6 +26,6 @@ RSpec.describe 'User',:type => :feature do
     fill_in 'user_username', with: 'johnsmith'
     fill_in 'user_password', with: 'passwordexample'
     find("input[type='submit']").click
-    expect(page).to have_css(".right-side", text: "Create event johnsmith Logout")
+    expect(page).to have_css('.right-side', text: 'Create event johnsmith Logout')
   end
 end

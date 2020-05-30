@@ -1,6 +1,6 @@
 require_relative './rails_helper.rb'
 
-RSpec.describe 'Event', :type => :feature do
+RSpec.describe 'Event', type: :feature do
   before(:all) do
     visit new_user_path
     fill_in 'user_username', with: 'johnsmith2'
