@@ -41,13 +41,13 @@ Once you have installed the requiered packages shown on the [Required Installati
 Clone the Repository, the folder toy_app will be downloaded
 
 ```Shell
-your@pc:~$ git clone git@github.com:bettercallazamat/members-only-ror.git
+your@pc:~$ git clone git@github.com:bettercallazamat/event-mgmt-ror.git
 ```
 
 Move to the downloaded folder
 
 ```Shell
-your@pc:~$ cd Forms-and-Helpers
+your@pc:~$ cd event-mgmt-ror
 ```
 
 install gems
@@ -77,7 +77,7 @@ your@pc:~$ rails server
 
 Then, go to [http://localhost:3000/](http://localhost:3000/)
 
-Voila!
+Success!
 
 ## Author
 
