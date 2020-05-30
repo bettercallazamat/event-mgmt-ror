@@ -1,15 +1,63 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #28b0ef;
+  padding: 0 20px;
+}
+
+.nav .right-side {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+
+}
+
+.nav li {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+main {
+  display: flex;
+}
+
+.main-title {
+  text-align: center;
+  padding: 20px 0;
+}
+
+main .left-side, main .right-side {
+  display: inline-block;
+  width: 50%;
+}
+
+.right-side h2, .left-side h2 {
+  padding: 10px 0;
+}
+
+.left-side p, .right-side p {
+  padding: 5px 0;
+}
+
+.event-info {
+  padding: 10px 0;
+}
+
+.prev-events, .upcoming-events {
+  padding: 5px 0;
+}
+
+.user-event-info {
+  padding: 10px 0;
+}

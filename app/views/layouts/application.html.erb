@@ -11,26 +11,34 @@
 </head>
 
 <body>
+  <nav>
+    <ul class="nav">
+      <li><%= link_to  "Home page", root_path %></li>
+      <div class="right-side">
+        <% if logged_in? %>
+          <li>
+            <%= link_to 'Create event', new_event_path %>
+          </li>
+          <li class="control">
+            <%= link_to current_user.username, user_path(current_user.id), class: "button is-info" %>
+          </li>
+          <li>
+            <%= link_to "Logout", sessions_destroy_path, method: :delete, class:"button is-info" %>
+          </li>
+        <% else %>
+          <li class="control">
+            <%= link_to 'Sign In', sessions_new_path, class: "button is-info" %>
+          </li>
+          <li class="control">
+            <%= link_to 'Sign Up', new_user_path, class: "button is-info" %>
+          </li>
+        <% end %>
+      </div>
+    </ul>
+  </nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= link_to  "Go to home page", root_path %>
-  <% if logged_in? %>
-    <p class="control">
-      <%= link_to current_user.username, class: "button is-info" %>
-    </p>
-    <p>
-      <%= link_to "Logout", sessions_destroy_path, method: :delete, class:"button is-info" %>
-    </p>
-  <% else %>
-    <p class="control">
-      <%= link_to 'Sign In', sessions_new_path, class: "button is-info" %>
-    </p>
-    <p class="control">
-      <%= link_to 'Sign Up', new_user_path, class: "button is-info" %>
-    </p>
-  <% end %>
-
-    <%= yield %>
+  <%= yield %>
 </body>
 
 </html>

@@ -1,5 +1,28 @@
-<% @events.each do |event| %>
-  <%= event.title %>
-  <%= event.event_date %>
-  <%= event.description %><br>
-<% end %>
+<h1 class="main-title">Events list</h1>
+<main>
+  <div class="left-side">
+    <h2>Past events</h2>
+    <% Event.past.each do |event| %>
+      <p>
+        <%= link_to event.title, event_path(event.id) %>
+        by <%= link_to event.creator.username, user_path(event.creator.id) %>
+        
+      </p>
+    <% end %>
+  </div>
+
+  <div class="right-side">
+    <h2>Upcoming events</h2>
+    <% Event.upcoming.each do |event| %>
+      <p>
+        <%= link_to event.title, event_path(event.id) %>
+        by <%= link_to event.creator.username, user_path(event.creator.id) %>
+        <% if going?(event.id) %>
+          <span>You are going</span>
+        <% else %>
+          <%= link_to 'Attend', attendence_path(event.id), method: :post %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</main>

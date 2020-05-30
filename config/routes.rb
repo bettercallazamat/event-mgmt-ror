@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
 
   resources :events, only: %i[index show new create]
+  post 'events/:id/attendences', to: 'attendences#create', as: 'attendence'
 
-  root "events#index"
+  root 'events#index'
 end
