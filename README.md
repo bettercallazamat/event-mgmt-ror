@@ -77,7 +77,7 @@ your@pc:~$ rails server
 
 Then, go to [http://localhost:3000/](http://localhost:3000/)
 
-Success!
+Bazinga!
 
 ## Author
 
