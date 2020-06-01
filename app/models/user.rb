@@ -18,7 +18,7 @@ class User < ApplicationRecord
   def past_user_events
     events.where('event_date <= ?', Time.now)
   end
-  
+
   def upcoming_user_events
     events.where('event_date > ?', Time.now)
   end
