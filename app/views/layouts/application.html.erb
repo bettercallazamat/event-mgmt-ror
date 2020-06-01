@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>EventMgmt</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <nav>
+    <ul class="nav">
+      <li><%= link_to  "Home page", root_path %></li>
+      <div class="right-side">
+        <% if logged_in? %>
+          <li>
+            <%= link_to 'Create event', new_event_path %>
+          </li>
+          <li class="control">
+            <%= link_to current_user.username, user_path(current_user.id), class: "button is-info" %>
+          </li>
+          <li>
+            <%= link_to "Logout", sessions_destroy_path, method: :delete, class:"button is-info" %>
+          </li>
+        <% else %>
+          <li class="control">
+            <%= link_to 'Sign In', sessions_new_path, class: "button is-info" %>
+          </li>
+          <li class="control">
+            <%= link_to 'Sign Up', new_user_path, class: "button is-info" %>
+          </li>
+        <% end %>
+      </div>
+    </ul>
+  </nav>
+
+  <% if flash[:notice] %>
+    <div>
+      <p><%= notice %></p>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div>
+      <p><%= alert %></p>
+    </div>
+  <% end %>
+    
+  <%= yield %>
+</body>
+
 </html>

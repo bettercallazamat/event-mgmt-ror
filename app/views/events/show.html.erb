@@ -1,0 +1,19 @@
+<h3>Title: <%= @event.title %></h3>
+<p><strong>Event date: </strong><%= @event.event_date %></p>
+<p><strong>Description: </strong><%= @event.description %></p>
+<% if @event.attendees.empty? %>
+  <p>No attandees</p>
+<% else %>
+  <strong>Attendees:</strong>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li><%= link_to attendee.username, user_path(attendee.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if going?(@event.id) %>
+  <p>You are going to this event</p>
+<% else %>
+  <p><%= link_to 'Attend', attendence_path(@event.id), method: :post %><p>
+<% end %>
