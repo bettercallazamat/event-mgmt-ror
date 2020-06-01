@@ -3,32 +3,56 @@
 <br>
 
 <h2>User events:</h2>
-<% @user.events.each do |event| %>
-  <div class="event-info">
-    <p>Title: <%= link_to event.title, event_path(event.id) %></p>
-    <p>Date: <%= event.event_date %></p>
-    <p>Description: <%= event.description %></p>
-    <% if event.attendees.empty? %>
-      <p>No attendees</p>
-    <% else%>
-      <strong>Attendees:</strong>
-      <ul>
-      <% event.attendees.each do |attendee| %>
-          <li><%= link_to attendee.username, user_path(attendee.id) %></li>
+<div class="user-past-events">
+  <h3>Past events</h3>
+  <% @past_user_events.each do |event| %>
+    <div class="event-info">
+      <p>Title: <%= link_to event.title, event_path(event.id) %></p>
+      <p>Date: <%= event.event_date %></p>
+      <p>Description: <%= event.description %></p>
+      <% if event.attendees.empty? %>
+        <p>No attendees</p>
+      <% else%>
+        <strong>Attendees:</strong>
+        <ul>
+        <% event.attendees.each do |attendee| %>
+            <li><%= link_to attendee.username, user_path(attendee.id) %></li>
+        <% end %>
+        </ul>
       <% end %>
-      </ul>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
+<div class="user-upcoming-events">
+  <h3>Upcoming events</h3>
+  <% @upcoming_user_events.each do |event| %>
+    <div class="event-info">
+      <p>Title: <%= link_to event.title, event_path(event.id) %></p>
+      <p>Date: <%= event.event_date %></p>
+      <p>Description: <%= event.description %></p>
+      <% if event.attendees.empty? %>
+        <p>No attendees</p>
+      <% else%>
+        <strong>Attendees:</strong>
+        <ul>
+        <% event.attendees.each do |attendee| %>
+            <li><%= link_to attendee.username, user_path(attendee.id) %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 
 <h2>User attendence</h2>
 <div class="prev-events">
-  <h3>Previous events:</h3>
-  <% if @prev_events.empty? %>
+  <h3>Past events:</h3>
+  <% if @past_events.empty? %>
     <p>No upcoming events attending</p>
   <% else%>
     <div class="user-event-info">
-      <% @prev_events.each do |event| %>
+      <% @past_events.each do |event| %>
         <p><%= event.title %></p>
         <p><%= event.event_date %></p>
         <p><%= event.description %></p>

@@ -2,7 +2,7 @@
 <main>
   <div class="left-side">
     <h2>Past events</h2>
-    <% Event.past.each do |event| %>
+    <% @past_events.each do |event| %>
       <p>
         <%= link_to event.title, event_path(event.id) %>
         by <%= link_to event.creator.username, user_path(event.creator.id) %>
@@ -13,7 +13,7 @@
 
   <div class="right-side">
     <h2>Upcoming events</h2>
-    <% Event.upcoming.each do |event| %>
+    <% @upcoming_events.each do |event| %>
       <p>
         <%= link_to event.title, event_path(event.id) %>
         by <%= link_to event.creator.username, user_path(event.creator.id) %>

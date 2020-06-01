@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash[:alert] = 'Something went wrong'
-      redirect_to sessions_login
+      redirect_to sessions_new_path
     end
   end
 

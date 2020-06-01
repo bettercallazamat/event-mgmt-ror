@@ -7,11 +7,19 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { in: 5..20 }
   validates :password, presence: true, length: { in: 10..30 }
 
-  def prev_events
+  def past_events
     attended_events.where('event_date <= ?', Time.now)
   end
 
   def upcoming_events
     attended_events.where('event_date > ?', Time.now)
+  end
+
+  def past_user_events
+    events.where('event_date <= ?', Time.now)
+  end
+  
+  def upcoming_user_events
+    events.where('event_date > ?', Time.now)
   end
 end
